@@ -8,6 +8,9 @@ class Login extends StatelessWidget {
   final uname_ctrl = TextEditingController();
   final pwd_ctrl = TextEditingController();
 
+  String username = "luminar@gmail.com";
+  String password = "123456";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,6 +32,7 @@ class Login extends StatelessWidget {
                   hintText: "Username",
                   helperText: "Username should be an email ",
                   labelText: "Username",
+                  prefixIcon: Icon(Icons.person),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15))),
             ),
@@ -37,18 +41,37 @@ class Login extends StatelessWidget {
             padding: const EdgeInsets.all(15.0),
             child: TextField(
               controller: pwd_ctrl,
+              obscureText: true,
+              obscuringCharacter: '*',
               decoration: InputDecoration(
                   hintText: "Password",
                   helperText: "Password should be atleast 6 characters ",
                   labelText: "Password",
+                  prefixIcon: Icon(Icons.lock),
+                  suffixIcon: Icon(Icons.remove_red_eye_rounded),
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(15))),
             ),
           ),
           ElevatedButton(
               onPressed: () {
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) => Home()));
+                if (uname_ctrl.text != "" && pwd_ctrl.text != "") {
+                  if (uname_ctrl.text == username &&
+                      pwd_ctrl.text == password) {
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => Home()));
+                  }
+                  else {
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: Colors.red,
+                        content: Text("username/password incorrect")));
+                  }
+                }
+                else {
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    backgroundColor: Colors.red,
+                      content: Text("username and password should not be null")));
+                }
               },
               child: Text("Login",
                   style: GoogleFonts.pacifico(

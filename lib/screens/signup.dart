@@ -7,6 +7,9 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  bool showpwd=true;
+  bool showpwd1=true;
+  var comfirmpass;
   final formkey=GlobalKey<FormState>(); //to validate entire form
   @override
   Widget build(BuildContext context) {
@@ -24,6 +27,7 @@ class _SignUpState extends State<SignUp> {
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: TextFormField(
+                  textInputAction: TextInputAction.next,
                   validator: (email){
                     if(email!.isEmpty  || !email.contains('@'))
                     {
@@ -32,12 +36,72 @@ class _SignUpState extends State<SignUp> {
                     else return null;
                   },
                   decoration: InputDecoration(
+                    hintText: "Username",
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(15)
                     )
                   ),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: TextFormField(
+                  textInputAction: TextInputAction.next,
+                  obscureText: showpwd,
+                  obscuringCharacter: '*',
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                    hintText: "Password",
+                    suffixIcon: IconButton(onPressed: (){
+                      setState(() {
+                        if(showpwd){
+                          showpwd=false;
+                        }
+                        else{
+                          showpwd=true;
+                        }
+                      });
+                    }, icon: Icon(showpwd==true?Icons.visibility:Icons.visibility_off))
+
+                  ),
+                  validator: (password){
+                    comfirmpass=password;
+                    if(password!.isEmpty || password.length<6)
+                    { return"Password should not be empty or length > 6";}
+
+                  else return null;
+                  },
+                ),
+              ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: TextFormField(
+              textInputAction: TextInputAction.next,
+              obscureText: showpwd1,
+              obscuringCharacter: '*',
+              decoration: InputDecoration(
+                  border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+                  hintText: "Password",
+                  suffixIcon: IconButton(onPressed: (){
+                    setState(() {
+                      if(showpwd1){
+                        showpwd1=false;
+                      }
+                      else{
+                        showpwd1=true;
+                      }
+                    });
+                  }, icon: Icon(showpwd1==true?Icons.visibility:Icons.visibility_off))
+
+              ),
+              validator: (cpassword){
+                if(cpassword  != comfirmpass|| cpassword!.isEmpty){
+                  return"Password mismatch /empty";
+                }
+                else return null;
+              },
+
+              )),
 
               ElevatedButton(onPressed: (){
                 var isValid=formkey.currentState!.validate();
@@ -47,7 +111,7 @@ class _SignUpState extends State<SignUp> {
                 }
               }, child: Text("signup"))
 
-            ],
+          ],
           )),
     );
   }

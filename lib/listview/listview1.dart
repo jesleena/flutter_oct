@@ -12,23 +12,39 @@ class Listview1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightGreen,
+        leading: Icon(Icons.arrow_back_ios),
         title: Text("Listview"),
+        actions: [
+         const Icon(Icons.camera_alt_outlined),
+         const SizedBox(
+            width: 20,
+          ),
+          Icon(Icons.search),
+          SizedBox(
+            width: 20,
+          ),
+          PopupMenuButton(itemBuilder:(context){
+            return [
+             const PopupMenuItem(child: Text("New group")),
+              const PopupMenuItem(child: Text("New broadcast")),
+              const PopupMenuItem(child: Text("Linked devices")),
+              const PopupMenuItem(child: Text("Settings")),
+            ];
+          })
+        ],
+
       ),
       body: ListView(
         children: [
-          // Center(child: Text("Customer List")),
-          // Image.asset("assets/icons/icon1.png"),
-          // Image.asset("assets/icons/icon2.png"),
-          // Image.asset("assets/icons/icon3.png"),
-          // Image.asset("assets/icons/icon4.png"),
-          // Image.asset("assets/icons/icon5.png"),
-
-          const Card(
-            //color: Colors.red,
+          Card(
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            color: Colors.lightGreen,
             shadowColor: Colors.green,
             elevation: 15,
-            child: ListTile(
-              tileColor: Colors.grey,
+            child: const ListTile(
+              // tileColor: Colors.grey,
               leading: CircleAvatar(
                   //backgroundColor: Colors.green,
                   backgroundImage: AssetImage("assets/images/pic5.jpg")),
@@ -41,6 +57,9 @@ class Listview1 extends StatelessWidget {
                     Icons.message,
                     color: Colors.green,
                   ),
+                  SizedBox(
+                    width: 15,
+                  ),
                   Icon(
                     Icons.call,
                     color: Colors.green,
@@ -52,18 +71,20 @@ class Listview1 extends StatelessWidget {
           ListTile(
               leading: Image.asset("assets/icons/icon2.png"),
               title: Text("Ben"),
-              subtitle: Text("9876543210"),
-              trailing: Wrap(children: [
+              subtitle: Wrap(children: [
                 Icon(
-                  Icons.message,
-                  color: Colors.green,
+                  Icons.done_all,
+                  color: Colors.blue,
                 ),
-                Icon(
-                  Icons.call,
-                  color: Colors.green,
-                ),
+                Text("Hi...")
+              ]),
+              trailing: Column(children: [
+                Text("yesterday"),
+                CircleAvatar(
+                  radius: 10,
+                  backgroundColor: Colors.green,
+                )
               ])),
-
           ListTile(
             leading: Image.asset("assets/icons/icon3.png"),
             title: Text("Ciya"),

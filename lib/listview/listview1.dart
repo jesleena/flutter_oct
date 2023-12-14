@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
+    //theme:ThemeData(primarySwatch: Colors.green) ,
     debugShowCheckedModeBanner: false,
     home: Listview1(),
   ));
@@ -35,6 +36,7 @@ class Listview1 extends StatelessWidget {
         ],
 
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){},child: Icon(Icons.add),),
       body: ListView(
         children: [
           Card(

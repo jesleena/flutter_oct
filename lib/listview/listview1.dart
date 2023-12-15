@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
-    //theme:ThemeData(primarySwatch: Colors.green) ,
+  theme:  ThemeData(
+    //primarySwatch: Colors.cyan
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.green,
+      ),
+    ),
     debugShowCheckedModeBanner: false,
     home: Listview1(),
   ));
@@ -13,7 +18,7 @@ class Listview1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.lightGreen,
+      //  backgroundColor: Colors.lightGreen,
         leading: Icon(Icons.arrow_back_ios),
         title: Text("Listview"),
         actions: [
@@ -80,13 +85,21 @@ class Listview1 extends StatelessWidget {
                 ),
                 Text("Hi...")
               ]),
-              trailing: Column(children: [
-                Text("yesterday"),
-                CircleAvatar(
-                  radius: 10,
-                  backgroundColor: Colors.green,
-                )
-              ])),
+               trailing: Wrap(
+                 direction: Axis.vertical,
+                 children: [ Text("yesterday"),
+              CircleAvatar(
+                radius: 10,
+                backgroundColor: Colors.green,
+              )],)
+    //Column(children: [
+              //   Text("yesterday"),
+              //   CircleAvatar(
+              //     radius: 10,
+              //     backgroundColor: Colors.green,
+              //   )
+              // ])
+    ),
           ListTile(
             leading: Image.asset("assets/icons/icon3.png"),
             title: Text("Ciya"),

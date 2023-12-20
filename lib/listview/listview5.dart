@@ -14,8 +14,9 @@ class Listview5 extends StatelessWidget {
           title: const Text("Listview Custom"),
         ),
         body: ListView.custom(
+          scrollDirection: Axis.horizontal,
             childrenDelegate:
-                SliverChildBuilderDelegate(childCount: 15,
+                SliverChildBuilderDelegate(
                         (context, index) => Card(
                       child: Icon(Icons.favorite),
                       color: Colors.pinkAccent,

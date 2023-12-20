@@ -7,7 +7,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  bool showpwd=true;
+  bool hidepwd=true;
   bool showpwd1=true;
   var comfirmpass;
   final formkey=GlobalKey<FormState>(); //to validate entire form
@@ -47,21 +47,21 @@ class _SignUpState extends State<SignUp> {
                 padding: const EdgeInsets.all(15.0),
                 child: TextFormField(
                   textInputAction: TextInputAction.next,
-                  obscureText: showpwd,
+                  obscureText: hidepwd,
                   obscuringCharacter: '*',
                   decoration: InputDecoration(
                     border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
                     hintText: "Password",
                     suffixIcon: IconButton(onPressed: (){
                       setState(() {
-                        if(showpwd){
-                          showpwd=false;
+                        if(hidepwd){
+                          hidepwd=false;
                         }
                         else{
-                          showpwd=true;
+                          hidepwd=true;
                         }
                       });
-                    }, icon: Icon(showpwd==true?Icons.visibility:Icons.visibility_off))
+                    }, icon: Icon(hidepwd==true?Icons.visibility:Icons.visibility_off))
 
                   ),
                   validator: (password){

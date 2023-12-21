@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -20,10 +22,8 @@ class Gridview1 extends StatelessWidget {
         children: List.generate(
             10,
             (index) => Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("assets/images/pic1.jpg"),
-                          fit: BoxFit.fill)),
+                 // color:Colors.primaries[index%Colors.primaries.length],
+              color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
                 )),
       ),
     );

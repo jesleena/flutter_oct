@@ -37,18 +37,31 @@ class Listview2 extends StatelessWidget {
     "assets/icons/icon6.png",
   ];
   var icons=[
-    Icons.done_all,
-    Icons.message,
-    Icons.message,
-    Icons.done_all,
-    Icons.message,
-    Icons.message,
-    Icons.done_all,
-    Icons.message,
-    Icons.message,
-    Icons.done_all,
-    Icons.message,
-    Icons.message,];
+    Icon(Icons.favorite,color: Colors.green,),
+    Icon(Icons.favorite,color: Colors.red,),
+    Icon(Icons.favorite,color: Colors.yellow,),
+    Icon(Icons.favorite,color: Colors.blue,),
+    Icon(Icons.favorite,color: Colors.purple,),
+    Icon(Icons.favorite,color: Colors.orange,),
+    Icon(Icons.favorite,color: Colors.red,),
+    Icon(Icons.favorite,color: Colors.yellow,),
+    Icon(Icons.favorite,color: Colors.blue,),
+    Icon(Icons.favorite,color: Colors.purple,),
+    Icon(Icons.favorite,color: Colors.green,),
+    Icon(Icons.favorite,color: Colors.red,),
+  ];
+    // Icons.done_all,
+    // Icons.message,
+    // Icons.message,
+    // Icons.done_all,
+    // Icons.message,
+    // Icons.message,
+    // Icons.done_all,
+    // Icons.message,
+    // Icons.message,
+    // Icons.done_all,
+    // Icons.message,
+    // Icons.message,];
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +76,7 @@ class Listview2 extends StatelessWidget {
                     child: ListTile(
                       leading: Image.asset(images[index]),
                       title: Text(name[index]),
-                      subtitle: Icon(icons[index]),
+                      subtitle: Wrap(children:[icons[index],icons[index]] ),
                       trailing: CircleAvatar(backgroundColor: Colors.green,),
                     ),
                   ))),

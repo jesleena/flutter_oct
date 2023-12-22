@@ -33,35 +33,45 @@ class Expanded1 extends StatelessWidget {
               color: Colors.red,
             ),
           ),
-          Container(
-            height: 200,
-            width: double.infinity,
-            color: Colors.blue,
-          ),
-          Container(
-            height: 100,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                FaIcon(
-                  FontAwesomeIcons.facebook,
-                  color: Colors.blue,
-                ),
-                FaIcon(
-                  FontAwesomeIcons.twitter,
-                  color: Colors.blue,
-                ),
-                FaIcon(
-                  FontAwesomeIcons.instagram,
-                  color: Colors.pink,
-                ),
-              ],
+          Expanded(
+            child: Container(
+              height: 200,
+              width: double.infinity,
+              color: Colors.blue,
             ),
           ),
           Expanded(
-            child: ListView.builder(itemCount: 10,
-                itemBuilder: (context, index) => Card( color:Colors.primaries[index%Colors.primaries.length],
-                      child: Center(child: Text("hi",style: TextStyle(color: Colors.white),)),
+            child: Container(
+              height: 100,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.facebook,
+                    color: Colors.blue,
+                  ),
+                  FaIcon(
+                    FontAwesomeIcons.twitter,
+                    color: Colors.blue,
+                  ),
+                  FaIcon(
+                    FontAwesomeIcons.instagram,
+                    color: Colors.pink,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          Expanded(
+            child: ListView.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) => Card(
+                      color: Colors.primaries[index % Colors.primaries.length],
+                      child: Center(
+                          child: Text(
+                        "hi",
+                        style: TextStyle(color: Colors.white),
+                      )),
                     )),
           )
         ],

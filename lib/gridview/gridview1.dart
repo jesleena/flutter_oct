@@ -22,8 +22,8 @@ class Gridview1 extends StatelessWidget {
         children: List.generate(
             10,
             (index) => Container(
-                 // color:Colors.primaries[index%Colors.primaries.length],
-              color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
+                  color:Colors.primaries[index%Colors.primaries.length],
+             // color: Colors.primaries[Random().nextInt(Colors.primaries.length)],
                 )),
       ),
     );

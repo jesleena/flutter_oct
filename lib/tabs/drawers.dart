@@ -8,7 +8,7 @@ class DrawerEx extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("drawer"),),
       drawer: Drawer(
-        backgroundColor: Colors.purpleAccent,
+        backgroundColor: Colors.blue[100],
         child: ListView(
           children: [
             UserAccountsDrawerHeader(
@@ -16,11 +16,10 @@ class DrawerEx extends StatelessWidget {
                 accountName: Text("Luminar"),
                 accountEmail: Text("Luminar@gmail.com"),
             currentAccountPicture: CircleAvatar(backgroundImage: AssetImage("assets/images/pic2.jpg"),),
-            otherAccountsPictures: [
+              otherAccountsPictures: [
               CircleAvatar(backgroundImage: AssetImage("assets/images/pic4.jpg"),),
               CircleAvatar(backgroundImage: AssetImage("assets/images/pic3.jpg"),),
-             // Image.asset("assets/images/pic3.jpg"),
-              //Image.asset("assets/images/pic4.jpg"),
+
             ],
             arrowColor: Colors.red,),
             ListTile(

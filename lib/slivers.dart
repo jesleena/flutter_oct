@@ -15,11 +15,13 @@ class SliverEx extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset("assets/images/pic10.jpg",fit: BoxFit.cover,),
-
+              background: Image.asset(
+                "assets/images/pic10.jpg",
+                fit: BoxFit.cover,
+              ),
             ),
-            pinned: true,
-           // floating: true,
+          //  pinned: true,
+      floating: true,
             elevation: 5,
             title: Text("SliverExample"),
             bottom: AppBar(
@@ -47,13 +49,13 @@ class SliverEx extends StatelessWidget {
             ),
           ),
           SliverGrid(
-              delegate:
-                  SliverChildBuilderDelegate(
-                          childCount: 15,(context, index) => Container(
+              delegate: SliverChildBuilderDelegate(
+                  childCount: 15,
+                  (context, index) => Container(
                         color: Colors.green,
                       )),
-              gridDelegate:SliverGridDelegateWithFixedCrossAxisCount(mainAxisSpacing: 5,crossAxisSpacing: 5,
-                  crossAxisCount: 4))
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  mainAxisSpacing: 5, crossAxisSpacing: 5, crossAxisCount: 4))
         ],
       ),
     );

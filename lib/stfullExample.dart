@@ -12,7 +12,7 @@ class STfullEx extends StatefulWidget {
 }
 
 class _STfullExState extends State<STfullEx> {
-  var bg = Colors.white;
+  Color? bg ;
   bool showBulb = false;
 
   @override

@@ -27,14 +27,7 @@ class Gridview4 extends StatelessWidget {
                 bgcolor: Colors.cyan,
                 image: Image.asset("assets/images/pic5.jpg"),
               )
-          //           Container(
-          // height: 50,
-          // width: 50,
-          // decoration: BoxDecoration(
-          // image: DecorationImage(
-          // image: AssetImage("assets/images/pic5.jpg"),
-          // fit: BoxFit.fill)),)
-
+          
           ),
     );
   }

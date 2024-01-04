@@ -12,8 +12,9 @@ class STfullEx extends StatefulWidget {
 }
 
 class _STfullExState extends State<STfullEx> {
-  Color? bg ;
+  Color? bg;
   bool showBulb = false;
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +24,20 @@ class _STfullExState extends State<STfullEx> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Text("Bulb Tapped:$counter"),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: GestureDetector(
                   onTap: () {
                     setState(() {
-                      bg = Colors.red;
+                      bg = Colors.pink;
                     });
                   },
                   child: Container(
-                      height: 40,
+                    height: 40,
                     width: 100,
-                    color: Colors.red,
-                    ),
+                    color: Colors.pink,
+                  ),
                 ),
               ),
               Padding(
@@ -76,6 +78,7 @@ class _STfullExState extends State<STfullEx> {
             backgroundColor: Colors.red,
             onPressed: () {
               setState(() {
+                counter++;
                 if (showBulb) {
                   showBulb = false;
                 } else {
@@ -87,3 +90,4 @@ class _STfullExState extends State<STfullEx> {
                 showBulb ? Icons.lightbulb : Icons.lightbulb_outline_rounded)));
   }
 }
+/// condition? stmt1:stmt2
